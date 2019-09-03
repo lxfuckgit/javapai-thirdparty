@@ -3,7 +3,10 @@ package com.javapai.thirdparty.haiguan.job;
 import java.io.IOException;
 import java.util.concurrent.Callable;
 
+import org.apache.http.client.ClientProtocolException;
+
 import com.alibaba.fastjson.JSON;
+import com.javapai.thirdparty.haiguan.config.SpringBeanUtils;
 import com.javapai.thirdparty.haiguan.service.HaiguanRepayService;
 import com.javapai.thirdparty.haiguan.vo.HgCheckVO;
 
@@ -21,7 +24,7 @@ public class HaiguanRepayJob implements Callable<String> {
 		// TODO Auto-generated method stub
 		String content = get179Data();
 		
-		HaiguanRepayService haiguanRepayService = new HaiguanRepayService();
+		HaiguanRepayService haiguanRepayService = SpringBeanUtils.getApplicationContext().getBean(HaiguanRepayService.class);
 		haiguanRepayService.repDataApply(JSON.parseObject(content, HgCheckVO.class));
 		
 		return content;
