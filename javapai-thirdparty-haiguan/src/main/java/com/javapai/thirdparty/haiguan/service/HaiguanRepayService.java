@@ -31,7 +31,9 @@ import org.apache.http.ssl.SSLContextBuilder;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import com.alibaba.fastjson.JSON;
@@ -42,9 +44,12 @@ import com.javapai.thirdparty.haiguan.HaiguanSign;
 import com.javapai.thirdparty.haiguan.Sign179Callback;
 import com.javapai.thirdparty.haiguan.vo.HgCheckVO;
 
-@org.springframework.stereotype.Service
+@Service("haiguanRepayService")
 public class HaiguanRepayService {
 	private static final Logger logger = LoggerFactory.getLogger(HaiguanController.class);
+	
+	@Autowired
+	private HaiguanSign haiguanSign;
 	
 	@Value(value = "${haiguan.certNo}")
 	private String certNo;
@@ -79,7 +84,6 @@ public class HaiguanRepayService {
 			epdata.put("_method", "cus-sec_SpcSignDataAsPEM");
 			epdata.put("_id", 1);
 			epdata.put("args", args);
-			HaiguanSign haiguanSign = new HaiguanSign();
 			haiguanSign.sign(epdata.toJSONString(), new Sign179Callback() {
 				@Override
 				public void signReply(String reply) {
