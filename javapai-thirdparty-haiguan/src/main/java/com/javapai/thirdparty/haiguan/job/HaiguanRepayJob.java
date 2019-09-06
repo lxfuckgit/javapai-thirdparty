@@ -11,10 +11,11 @@ import com.javapai.thirdparty.haiguan.service.HaiguanRepayService;
 import com.javapai.thirdparty.haiguan.vo.HgCheckVO;
 
 public class HaiguanRepayJob implements Callable<String> {
-	private String sessionID, orderNo;
+	private String targetUrl, sessionID, orderNo;
 	
-	public HaiguanRepayJob(String orderNo, String sessionID) {
+	public HaiguanRepayJob(String targetUrl, String orderNo, String sessionID) {
 		// TODO Auto-generated constructor stub
+		this.targetUrl = targetUrl;
 		this.orderNo = orderNo;
 		this.sessionID = sessionID;
 	}
