@@ -5,6 +5,8 @@ import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,6 +17,7 @@ import com.javapai.thirdparty.haiguan.job.HaiguanRepayJob;
 
 @RestController
 public class HaiguanQueryController {
+	private static final Logger logger = LoggerFactory.getLogger(HaiguanQueryController.class);
 	
 	@Value(value = "${haiguan.data.targetUrl}")
 	private String targetUrl;
@@ -24,6 +27,7 @@ public class HaiguanQueryController {
 	@PostMapping("/haiguan/platDataOpen")
 //	public Map<String, Object> platDataOpen(HttpServletRequest request) {
 	public Map<String, Object> platDataOpen(@RequestParam(value="openReq") String openReq) {
+		logger.info("------>接受海关数据回执请求报文:{}!" + openReq);
 		JSONObject object = JSONObject.parseObject(openReq);
 		
 		/* 处理请求（视情况根据公司环境job化或是mq处理） */
