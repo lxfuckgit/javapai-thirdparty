@@ -9,7 +9,7 @@
 	<parent>
 		<groupId>com.javapai.thirdparty</groupId>
 		<artifactId>javapai-thirdparty</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>v1.0.0</version>
 	</parent>
 	
 	<properties>
