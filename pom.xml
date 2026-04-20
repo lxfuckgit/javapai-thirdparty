@@ -36,4 +36,9 @@
 		</plugins>
 	</build>
 	
+	<modules>
+	    <module>javapai-thirdparty-haiguan</module>
+		<module>javapai-thirdparty-eweixin</module>
+	</modules>
+	
 </project>

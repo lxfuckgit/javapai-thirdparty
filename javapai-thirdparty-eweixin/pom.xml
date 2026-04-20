@@ -1,0 +1,31 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>javapai-thirdparty-eweixin</artifactId>
+	<version>v20260208</version>
+	
+	<parent>
+		<groupId>com.javapai.thirdparty</groupId>
+		<artifactId>javapai-thirdparty</artifactId>
+		<version>v1.0.0</version>
+	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.javapai.framework</groupId>
+			<artifactId>javapai-framework-utils</artifactId>
+			<version>v2.0.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpmime</artifactId>
+			<version>4.5.6</version>
+		</dependency>
+	</dependencies>
+	
+</project>
